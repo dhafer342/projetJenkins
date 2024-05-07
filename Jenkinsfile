@@ -1,19 +1,25 @@
 pipeline{
-  agent any
+  agent {
+    docker{
+        image 'node:21-alpine'
+    }
+  }
   
-  environment {
-    MY_VAR = 'une variable'
+  stages {
+     stage('build'){
+        steps{
+           sh 'npm -v'  
+        }
+     }
+  }
+  post {
+   always{
+    echo 'always !'
+   }
+   success{
+    echo 'success'
+   }
+
   }
 
-  stages {
-    stage('build'){
-        steps{
-            echo "BRANCH_NAME ${ env.BRANCH_NAME }"
-            echo "MY_VAR ${ env.MY_VAR }"
-            sh 'printenv'
-        }
-        
-    }
-   
-  }  
 }
