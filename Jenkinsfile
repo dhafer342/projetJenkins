@@ -13,13 +13,13 @@ pipeline{
      }
   }
   post {
-   always{
-    echo 'always !'
-   }
-   success{
-    echo 'success'
-   }
+    always{
+     echo 'always !'
+    }
+    success{
+     echo 'success'
+    }
 
-  }
+ }
 
 }
