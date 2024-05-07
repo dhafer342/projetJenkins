@@ -4,19 +4,10 @@ pipeline{
   stages {
     stage('build'){
         steps{
-            echo 'Build application ...'
+            echo "BRANCH_NAME ${ env.BRANCH_NAME }"
         }
         
     }
-    stage('tests'){
-        steps{
-            echo 'Execution Tests ...'
-        }
-    }
-    stage('deployment'){
-        steps{
-            echo 'Deploiment application ...'
-        }
-    }
+   
   }  
 }
