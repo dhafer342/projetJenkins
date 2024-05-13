@@ -1,25 +1,17 @@
 pipeline{
-  agent {
-    docker{
-        image 'node:21-alpine'
-    }
+  agent any
+  
+  parameters {
+   string(name: 'NAME',defaultValue:'test', description: ' test description')
   }
+  
   
   stages {
      stage('build'){
         steps{
-           sh 'npm -v'  
+           echo "name : ${NAME}"
         }
      }
   }
-  post {
-    always{
-     echo 'always !'
-    }
-    success{
-     echo 'success'
-    }
-
- }
-
+  
 }
