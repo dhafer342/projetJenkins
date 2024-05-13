@@ -1,5 +1,9 @@
 pipeline{
   agent any
+
+  triggers{
+   pollSCM('* * * * *')
+  }
   
   parameters {
    string(name: 'NAME',defaultValue:'test', description: ' test description')
